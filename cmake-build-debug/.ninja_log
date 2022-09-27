@@ -1,0 +1,25 @@
+# ninja log v5
+4	351	6859710178698452	CMakeFiles/Task.dir/Matrix/Column.cpp.obj	92b61d6797ca605e
+12	769	6854015949196984	CMakeFiles/Task.dir/Complex.cpp.obj	41657871ef8a7ab6
+6	577	6854581110842820	CMakeFiles/Task.dir/Matrix.cpp.obj	96c56041b1ef3058
+3	55	6856575563520911	CMakeFiles/Task.dir/Column.cpp.obj	8487aecbe91fefaa
+3	540	6859984380800695	CMakeFiles/Task.dir/main.cpp.obj	2fa826733199c0c8
+12	588	6859986409391551	CMakeFiles/Task.dir/Matrix/utils.cpp.obj	f4ae551981c218e4
+533	632	6859975622087212	Task.exe	84bab41fbfe86d63
+10	404	6856585377421706	CMakeFiles/Task.dir/Matrix/Complex.cpp.obj	eabb8afe600bea6b
+3	481	6856577219987029	CMakeFiles/Task.dir/QuadMatrix.cpp.obj	cfc07d2b850a9f4d
+14	564	6856585379012249	CMakeFiles/Task.dir/Matrix/QuadMatrix.cpp.obj	3dc84f7bce82d1f4
+3	525	6859996734037284	CMakeFiles/Task.dir/Matrix/Matrix.cpp.obj	7a8a674f10800fd8
+7	374	6859997043499236	build.ninja	bc8dfd610706c4e2
+9	76	6859996729540841	CMakeFiles/Task.dir/Matrix/Row.cpp.obj	8e5da88efe189d9d
+14	166	6859927613821036	CMakeFiles/Task.dir/Matrix/Pair.cpp.obj	4d3ec12320a3b8e6
+3	100	6859997049406115	Task.exe	84bab41fbfe86d63
+3	499	6859997538405844	CMakeFiles/Task.dir/main.cpp.obj	2fa826733199c0c8
+499	592	6859997539308597	Task.exe	84bab41fbfe86d63
+3	593	6859997976722363	CMakeFiles/Task.dir/main.cpp.obj	2fa826733199c0c8
+7	634	6859997977138267	CMakeFiles/Task.dir/Matrix/Matrix.cpp.obj	7a8a674f10800fd8
+634	752	6859997978280235	Task.exe	84bab41fbfe86d63
+3	519	6859999247260175	CMakeFiles/Task.dir/Matrix/Matrix.cpp.obj	7a8a674f10800fd8
+520	606	6859999248101570	Task.exe	84bab41fbfe86d63
+2	492	6860000923714724	CMakeFiles/Task.dir/main.cpp.obj	2fa826733199c0c8
+492	578	6860000924544433	Task.exe	84bab41fbfe86d63
