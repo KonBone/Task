@@ -3,13 +3,19 @@
 
 int main() {
     Pair dims(3);
-    Matrix M(dims), E(dims, 1);
-    std::cin >> M;
+    Pair dimsV(3, 1);
+    Matrix M(dims), N(dims, 1), E(dims, 1.), V(dimsV);
+    std::cin >> M >> V;
     Matrix Temp(M);
 
-    Temp.gauss(E);
-    Temp.reserveGauss(E);
+    Temp.gauss(V);
 
-    std::cout << M << "----- \n" << E << "----- \n" << M * E;
+    Temp.reserveGauss(V);
+
+    std::cout << V;
+    if (E == Temp)
+        std::cout << N;
+    else
+        std::cout << "Matrix has not inverse one";
     return 0;
 }

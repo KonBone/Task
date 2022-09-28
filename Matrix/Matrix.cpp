@@ -2,6 +2,7 @@
 // Created by konst on 06.09.2022.
 //
 
+#include <iostream>
 #include "Matrix.h"
 
 Matrix::Matrix() : n(0), m(0), matrix(nullptr) { }
@@ -219,6 +220,14 @@ void Matrix::gauss(Matrix & that) {
     if (that.n != this->n) throw "Matrices have different dimensions";
 
     for (int i = 0; i < this->n; ++i) {
+        if ((*this)[i][i] == 0.) {
+            int j = i + 1;
+            while (j < this->m && (*this)[j][i] == 0) j++;
+            if (j == this->m) continue;
+            that[i].swap(that[j]);
+            (*this)[i].swap((*this)[j]);
+        }
+        if ((*this)[i][i] == 0.) continue;
         that[i] /= (*this)[i][i];
         (*this)[i] /= (*this)[i][i];
         for (int j = i + 1; j < this->m; ++j) {
