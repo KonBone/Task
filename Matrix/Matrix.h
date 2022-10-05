@@ -12,8 +12,9 @@
 
 class Matrix {
 private:
-    const unsigned n = 0, m = 0;
+    const unsigned n, m;
     double **matrix;
+    double k;
 public:
     Matrix();
     Matrix(Pair dims);
@@ -24,9 +25,12 @@ public:
     ~Matrix();
 
     static double determinant(Matrix &M);
+    double determinantTriangle();
 
-    void gauss(Matrix & that);
-    void reserveGauss(Matrix & that);
+    Matrix gauss(Matrix & that);
+    Matrix gauss();
+    Matrix reserveGauss(Matrix & that);
+    Matrix reserveGauss();
 
     Matrix t();
     Matrix operator !();

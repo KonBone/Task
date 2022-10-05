@@ -144,6 +144,9 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "C:/Develope/IDE/JetBrains/CLion 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "Matrix/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -1,3 +1,6 @@
 C:/Users/konst/CLionProjects/Task/cmake-build-debug/CMakeFiles/Task.dir
 C:/Users/konst/CLionProjects/Task/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/konst/CLionProjects/Task/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/konst/CLionProjects/Task/cmake-build-debug/Matrix/CMakeFiles/Matrix.dir
+C:/Users/konst/CLionProjects/Task/cmake-build-debug/Matrix/CMakeFiles/edit_cache.dir
+C:/Users/konst/CLionProjects/Task/cmake-build-debug/Matrix/CMakeFiles/rebuild_cache.dir

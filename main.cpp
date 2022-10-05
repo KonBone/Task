@@ -2,20 +2,15 @@
 #include "Matrix/Matrix.h"
 
 int main() {
-    Pair dims(3);
-    Pair dimsV(3, 1);
-    Matrix M(dims), N(dims, 1), E(dims, 1.), V(dimsV);
+    Pair dims(2);
+    Pair dimsV(2, 1);
+    Matrix M(dims), V(dimsV), E(dims, 1);
     std::cin >> M >> V;
-    Matrix Temp(M);
-
-    Temp.gauss(V);
-
+    double det = M.gauss().determinantTriangle();
+    Matrix Temp = M.gauss(E);
+    Temp.reserveGauss(E);
+    Temp = M.gauss(V);
     Temp.reserveGauss(V);
-
-    std::cout << V;
-    if (E == Temp)
-        std::cout << N;
-    else
-        std::cout << "Matrix has not inverse one";
+    std::cout << "Result:\n" << V << "Inverse:\n" << E << "Determinant:\n" << det << "\nA * A^-1:\n" << M * E;
     return 0;
 }

@@ -47,7 +47,7 @@ cmake_ninja_workdir = C$:/Users/konst/CLionProjects/Task/cmake-build-debug/
 #############################################
 # Order-only phony target for Task
 
-build cmake_object_order_depends_target_Task: phony || CMakeFiles/Task.dir
+build cmake_object_order_depends_target_Task: phony || cmake_object_order_depends_target_Matrix
 
 build CMakeFiles/Task.dir/main.cpp.obj: CXX_COMPILER__Task_Debug C$:/Users/konst/CLionProjects/Task/main.cpp || cmake_object_order_depends_target_Task
   DEP_FILE = CMakeFiles\Task.dir\main.cpp.obj.d
@@ -87,9 +87,9 @@ build CMakeFiles/Task.dir/Matrix/Pair.cpp.obj: CXX_COMPILER__Task_Debug C$:/User
 #############################################
 # Link the executable Task.exe
 
-build Task.exe: CXX_EXECUTABLE_LINKER__Task_Debug CMakeFiles/Task.dir/main.cpp.obj CMakeFiles/Task.dir/Matrix/Matrix.cpp.obj CMakeFiles/Task.dir/Matrix/Column.cpp.obj CMakeFiles/Task.dir/Matrix/Row.cpp.obj CMakeFiles/Task.dir/Matrix/Pair.cpp.obj
+build Task.exe: CXX_EXECUTABLE_LINKER__Task_Debug CMakeFiles/Task.dir/main.cpp.obj CMakeFiles/Task.dir/Matrix/Matrix.cpp.obj CMakeFiles/Task.dir/Matrix/Column.cpp.obj CMakeFiles/Task.dir/Matrix/Row.cpp.obj CMakeFiles/Task.dir/Matrix/Pair.cpp.obj | Matrix/libMatrix.a || Matrix/libMatrix.a
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = Matrix/libMatrix.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Task.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -121,9 +121,90 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/konst/CLionProjects/Task/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Matrix
+
+
+#############################################
+# Order-only phony target for Matrix
+
+build cmake_object_order_depends_target_Matrix: phony || Matrix/CMakeFiles/Matrix.dir
+
+build Matrix/CMakeFiles/Matrix.dir/Matrix.cpp.obj: CXX_COMPILER__Matrix_Debug C$:/Users/konst/CLionProjects/Task/Matrix/Matrix.cpp || cmake_object_order_depends_target_Matrix
+  DEP_FILE = Matrix\CMakeFiles\Matrix.dir\Matrix.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = Matrix\CMakeFiles\Matrix.dir
+  OBJECT_FILE_DIR = Matrix\CMakeFiles\Matrix.dir
+
+build Matrix/CMakeFiles/Matrix.dir/Column.cpp.obj: CXX_COMPILER__Matrix_Debug C$:/Users/konst/CLionProjects/Task/Matrix/Column.cpp || cmake_object_order_depends_target_Matrix
+  DEP_FILE = Matrix\CMakeFiles\Matrix.dir\Column.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = Matrix\CMakeFiles\Matrix.dir
+  OBJECT_FILE_DIR = Matrix\CMakeFiles\Matrix.dir
+
+build Matrix/CMakeFiles/Matrix.dir/Row.cpp.obj: CXX_COMPILER__Matrix_Debug C$:/Users/konst/CLionProjects/Task/Matrix/Row.cpp || cmake_object_order_depends_target_Matrix
+  DEP_FILE = Matrix\CMakeFiles\Matrix.dir\Row.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = Matrix\CMakeFiles\Matrix.dir
+  OBJECT_FILE_DIR = Matrix\CMakeFiles\Matrix.dir
+
+build Matrix/CMakeFiles/Matrix.dir/Pair.cpp.obj: CXX_COMPILER__Matrix_Debug C$:/Users/konst/CLionProjects/Task/Matrix/Pair.cpp || cmake_object_order_depends_target_Matrix
+  DEP_FILE = Matrix\CMakeFiles\Matrix.dir\Pair.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = Matrix\CMakeFiles\Matrix.dir
+  OBJECT_FILE_DIR = Matrix\CMakeFiles\Matrix.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Matrix
+
+
+#############################################
+# Link the static library Matrix\libMatrix.a
+
+build Matrix/libMatrix.a: CXX_STATIC_LIBRARY_LINKER__Matrix_Debug Matrix/CMakeFiles/Matrix.dir/Matrix.cpp.obj Matrix/CMakeFiles/Matrix.dir/Column.cpp.obj Matrix/CMakeFiles/Matrix.dir/Row.cpp.obj Matrix/CMakeFiles/Matrix.dir/Pair.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Matrix\CMakeFiles\Matrix.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Matrix\libMatrix.a
+  TARGET_PDB = Matrix.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Matrix/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\konst\CLionProjects\Task\cmake-build-debug\Matrix && "C:\Develope\IDE\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Matrix/edit_cache: phony Matrix/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Matrix/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\konst\CLionProjects\Task\cmake-build-debug\Matrix && "C:\Develope\IDE\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\konst\CLionProjects\Task -BC:\Users\konst\CLionProjects\Task\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Matrix/rebuild_cache: phony Matrix/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
+build Matrix: phony Matrix/libMatrix.a
+
 build Task: phony Task.exe
+
+build libMatrix.a: phony Matrix/libMatrix.a
 
 # =============================================================================
 # Folder targets.
@@ -133,7 +214,14 @@ build Task: phony Task.exe
 #############################################
 # Folder: C:/Users/konst/CLionProjects/Task/cmake-build-debug
 
-build all: phony Task.exe
+build all: phony Task.exe Matrix/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/konst/CLionProjects/Task/cmake-build-debug/Matrix
+
+build Matrix/all: phony Matrix/libMatrix.a
 
 # =============================================================================
 # Built-in targets
@@ -142,14 +230,14 @@ build all: phony Task.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCXXInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Matrix/CMakeLists.txt C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCXXInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCXXInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../Matrix/CMakeLists.txt C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCXXInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-CXX.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Develope/IDE/JetBrains/CLion$ 2021.3.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################
