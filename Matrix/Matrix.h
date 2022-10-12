@@ -29,6 +29,10 @@ public:
 
     Matrix gauss(Matrix & that);
     Matrix gauss();
+
+    Matrix rotating(Matrix & that);
+    Matrix rotating();
+
     Matrix reserveGauss(Matrix & that);
     Matrix reserveGauss();
 
@@ -62,6 +66,10 @@ public:
     friend std::istream & operator >>(std::istream & stream, Matrix &M);
 
     friend Matrix operator *(double scalar, Matrix const &M);
+
+    Pair getDims() const;
+    Matrix createRotatingMatrix(int i, int j);
+    Matrix dopisat(Matrix & that);
 };
 
 

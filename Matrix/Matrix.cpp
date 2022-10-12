@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 #include "Matrix.h"
 
 Matrix::Matrix() : n(0), m(0), matrix(nullptr), k(1) { }
@@ -220,7 +221,6 @@ Matrix operator*(double scalar, Matrix const &M) {
 double Matrix::determinantTriangle() {
     double res = this->k;
     for (int i = 0; i < this->n; ++i) {
-        std::cout << k << std::endl;
         res *= this->matrix[i][i];
     }
     return res;
@@ -294,5 +294,51 @@ Matrix Matrix::reserveGauss() {
             res[j] -= res[j][i] * res[i];
         }
 
+    return res;
+}
+
+Matrix Matrix::createRotatingMatrix(int i, int j) {
+    Matrix res(this->getDims(), 1);
+    double a = this->matrix[i][i], b = this->matrix[j][i];
+    double norm = std::sqrt(a * a + b * b);
+    double cos = a / norm;
+    double sin = -b / norm;
+    res.matrix[i][i] = res.matrix[j][j] = cos;
+    res.matrix[j][i] = sin;
+    res.matrix[i][j] = -sin;
+    return res;
+}
+
+Pair Matrix::getDims() const {
+    return Pair(this->n);
+}
+
+Matrix Matrix::rotating(Matrix &that) {
+    if (that.n != this->n) throw "Matrices have different dimensions";
+    Matrix res(*this);
+    Pair dims = res.getDims();
+    for (int i = 0; i < dims.first(); ++i)
+        for (int j = i + 1; j < dims.first(); ++j) {
+            that = res.createRotatingMatrix(i, j) * that;
+            res = res.createRotatingMatrix(i, j) * res;
+        }
+
+    for (int i = 0; i < dims.first(); ++i) {
+        res.k *= res[i][i];
+        that[i] /= res[i][i];
+        res[i] /= res[i][i];
+    }
+    return res;
+}
+
+Matrix Matrix::dopisat(Matrix & that) {
+    Pair dims(this->n, this->m + that.m);
+    Matrix res(dims);
+    for (int i = 0; i < this->n; ++i) {
+        for (int j = 0; j < this->m; ++j)
+            res.matrix[i][j] = this->matrix[i][j];
+        for (int j = this->m; j < dims.second(); ++j)
+            res.matrix[i][j] = that.matrix[i][j - this->m];
+    }
     return res;
 }

@@ -2,15 +2,22 @@
 #include "Matrix/Matrix.h"
 
 int main() {
-    Pair dims(2);
-    Pair dimsV(2, 1);
+    Pair dims(4), dimsV(4, 1);
     Matrix M(dims), V(dimsV), E(dims, 1);
     std::cin >> M >> V;
-    double det = M.gauss().determinantTriangle();
-    Matrix Temp = M.gauss(E);
-    Temp.reserveGauss(E);
-    Temp = M.gauss(V);
-    Temp.reserveGauss(V);
-    std::cout << "Result:\n" << V << "Inverse:\n" << E << "Determinant:\n" << det << "\nA * A^-1:\n" << M * E;
+    Matrix right = V.dopisat(E);
+    Matrix temp = M.rotating(right);
+    temp = temp.reserveGauss(right);
+    std::cout << right << temp.determinantTriangle();
     return 0;
 }
+/*
+1 1 1 1
+1 9.9 99.8 999.7
+1 99.8 9999.9 999999.8
+1 999.7 999999.8 999999999.9
+10
+4319
+4030199.5
+4003001999.4
+ */
