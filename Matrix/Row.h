@@ -31,7 +31,8 @@ public:
     void swap(Row const & row);
 
     friend Row operator *(double scalar, Row const & row);
-    double operator[](unsigned index);
+    double& operator[](unsigned index);
+    double operator[](unsigned index) const;
 };
 
 

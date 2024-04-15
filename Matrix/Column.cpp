@@ -13,3 +13,7 @@ Column::~Column() {
 double &Column::operator[](unsigned i) {
     return *this->col[i];
 }
+
+unsigned Column::size() const {
+    return n;
+}

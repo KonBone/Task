@@ -14,10 +14,10 @@ public:
     Pair(unsigned n);
     Pair(unsigned n, unsigned m);
 
-    unsigned first();
-    unsigned second();
+    unsigned first() const;
+    unsigned second() const;
 
-    unsigned operator[](unsigned i);
+    unsigned operator[](unsigned i) const;
 };
 
 

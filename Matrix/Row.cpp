@@ -37,7 +37,12 @@ Row Row::operator*(double scalar) {
     return res;
 }
 
-double Row::operator[](unsigned int index) {
+double& Row::operator[](unsigned int index) {
+    if (index < 0 || index >= this->m) throw "Invalid index";
+    return this->row[index];
+}
+
+double Row::operator[](unsigned int index) const {
     if (index < 0 || index >= this->m) throw "Invalid index";
     return this->row[index];
 }

@@ -14,6 +14,7 @@ public:
     Column(unsigned n, double ** arr);
     ~Column();
     double & operator [](unsigned i);
+    unsigned size() const;
 };
 
 
